@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Map;
 
 @WebServlet("/first")
 public class FirstServlet extends HttpServlet {
@@ -23,6 +24,12 @@ public class FirstServlet extends HttpServlet {
         try (var writer = resp.getWriter()) {
             writer.write("<h1>Hello, from Servlet!</h1>");
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        var parameterMap = req.getParameterMap();
+        System.out.println(parameterMap);
     }
 
     @Override
