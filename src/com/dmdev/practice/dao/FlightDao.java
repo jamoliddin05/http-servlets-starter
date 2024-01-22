@@ -18,7 +18,6 @@ public class FlightDao implements Dao<Long, Flight> {
             FROM flight
             """;
 
-
     private FlightDao() {
     }
 
@@ -32,7 +31,6 @@ public class FlightDao implements Dao<Long, Flight> {
              var preparedStatement = connection.prepareStatement(FIND_ALL)) {
             var resultSet = preparedStatement.executeQuery();
             List<Flight> flights = new ArrayList<>();
-
             while (resultSet.next()) {
                 flights.add(buildFlight(resultSet));
             }
